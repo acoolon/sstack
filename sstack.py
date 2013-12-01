@@ -5,6 +5,10 @@ app = flask.Flask(__name__, static_url_path='')
 username = re.compile('\A([^\W\d_]| )+\Z')
 stack = list()
 
+@app.route('/')
+def index():
+    return flask.redirect('index.html')
+
 @app.route('/stack', methods=('GET',))
 def view_stack():
     return flask.jsonify(stack=stack)
