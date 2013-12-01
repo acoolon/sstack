@@ -2,7 +2,7 @@ import re
 import flask
 
 app = flask.Flask(__name__, static_url_path='')
-username = re.compile('\w')
+username = re.compile('\A([^\W\d_]| )+\Z')
 stack = list()
 
 @app.route('/stack', methods=('GET',))
